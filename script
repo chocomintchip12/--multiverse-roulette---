@@ -1,0 +1,31 @@
+const characters = {
+  marvel: ["Spider-Man", "Storm", "Moon Knight", "Beta Ray Bill"],
+  dc: ["Batman", "Zatanna", "Ragman", "Plastic Man"],
+  starwars: ["Luke Skywalker", "Darth Maul", "Ahsoka Tano", "Cad Bane"]
+};
+
+function randomStat() {
+  return Math.floor(Math.random() * 100) + 1;
+}
+
+function randomOutfit() {
+  const styles = ["Cyberpunk", "Medieval", "Tactical", "Alien", "Stealth", "Royal"];
+  return styles[Math.floor(Math.random() * styles.length)];
+}
+
+function spinCharacter() {
+  const universe = document.getElementById("universe").value;
+  const name = characters[universe][Math.floor(Math.random() * characters[universe].length)];
+
+  const result = `
+    <h2>You are: ${name}</h2>
+    <p><strong>Strength:</strong> ${randomStat()}</p>
+    <p><strong>Speed:</strong> ${randomStat()}</p>
+    <p><strong>Durability:</strong> ${randomStat()}</p>
+    <p><strong>IQ:</strong> ${randomStat()}</p>
+    <p><strong>Power Level:</strong> ${randomStat()}</p>
+    <p><strong>Outfit Style:</strong> ${randomOutfit()}</p>
+  `;
+
+  document.getElementById("result").innerHTML = result;
+}
